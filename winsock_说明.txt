@@ -53,3 +53,11 @@ u_short htons(u_short hostshort);//将u_short类型变量从主机字节顺序�
 u_short htons(u_long hostlong);//将u_long ................................................
 u_short ntohs(u_short netshort);//将u_short类型从TCP/IP网络字节顺序转化为主机字节顺序
 u_long  ntohs(u_long netlong);//将u_long.............................................
+
+sockaddr_in--初始化
+sockaddr_in sockAddr;
+sockAddr.sin_family=AF_INET;
+//转化端口为正确的网络字节序，并赋值给正确的成员
+sockAddr.sin_port=htons(8888);
+//转化ip，并赋值给正确的成员
+sockAddr.sin_addr.S_un.S_addr=inet_addr("102.168.1.100");
