@@ -47,3 +47,9 @@ struct in_addr{
 		u_long S_addr;//以上1个u_long来描述
 	}S_un;
 }
+
+winsock--用来处理本地机器字节顺序和网络字节顺序的转换
+u_short htons(u_short hostshort);//将u_short类型变量从主机字节顺序转化为TCP/IP网络字节顺序
+u_short htons(u_long hostlong);//将u_long ................................................
+u_short ntohs(u_short netshort);//将u_short类型从TCP/IP网络字节顺序转化为主机字节顺序
+u_long  ntohs(u_long netlong);//将u_long.............................................
