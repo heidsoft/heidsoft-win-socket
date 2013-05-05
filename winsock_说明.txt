@@ -31,3 +31,11 @@ h_addrtype –地址类型; 通常是AF_INET。
 h_length – 地址的比特长度。
 h_addr_list – 零字节-主机网络地址指针。网络字节顺序。
 h_addr - h_addr_list中的第一地址。
+
+
+struct sockaddr_in{
+	short sin_family;//地址家族，应为AF_INET
+	u_short sin_port;//端口号
+	struct in_addr sin_addr;//ip地址
+	char   sin_zero[8];//空字节，要设为0
+};
