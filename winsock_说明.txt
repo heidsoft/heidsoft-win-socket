@@ -1,0 +1,17 @@
+#include <WinSock2.h>
+
+int WSAStartup(
+		WORD wVersionRequested,//指定想要加载的Winsock库的版本，高字节为次版本号，低字节主版本号
+		LPWSADATA lpWSAData	   //一个指向WSADATA结构的指针，用来返回DLL库的详细信息
+	);
+
+//MAKEWORD(x,y)
+typedef struct WSAData{
+	WORD wVersion;	//库文件建议应用使用的版本
+	WORD wHighVersion;//库文件支持的最高版本
+	char szDescription[WSADESCRIPTION_LEN+1];//库描述字符串
+	char szSystemStatus[WSASYS_STATUS_LEN+1];//系统状态字符串
+	unsigned short iMaxSockets;//同时支持的最大套接字的数量
+	unsigned short iMaxUdpDg;  //2.0版中已经废弃的参数
+	char FAR* lpVendorInfo;	   //2.0版中已废弃的参数
+}WSADATA,FAR* LPWSADATA;
